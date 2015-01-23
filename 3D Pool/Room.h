@@ -1,6 +1,7 @@
 #pragma once
 #include "IDrawable.h"
 #include "SFML/OpenGL.hpp"
+#include "SimpleModelLoader.h"
 
 class Room : public IDrawable
 {

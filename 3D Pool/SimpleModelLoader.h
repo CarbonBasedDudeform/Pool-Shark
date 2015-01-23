@@ -13,10 +13,14 @@
 */
 
 #pragma once
+#include "SFML/OpenGL.hpp"
+#include <fstream>
 
 class SimpleModelLoader
 {
 public:
+	static GLfloat * Load(char * file);
+private:
 	SimpleModelLoader();
 	~SimpleModelLoader();
 };

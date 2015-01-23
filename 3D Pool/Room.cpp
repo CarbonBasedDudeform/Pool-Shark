@@ -4,11 +4,13 @@
 Room::Room()
 {
 	//Initialise vertex array
-	_vertices = new GLfloat[NUM_OF_VERTICES] {
+	/*_vertices = new GLfloat[NUM_OF_VERTICES] {
 		1.0f, 0.0f, 0.0f,
 			-1.0f, 0.0f, 0.0f,
 			1.0f, 1.0f, 0.0f
-	};
+	};*/
+
+	_vertices = SimpleModelLoader::Load("D:/Programming/Playground/Graphics/OpenGL/Pool-Shark/Debug/test.txt");
 }
 
 

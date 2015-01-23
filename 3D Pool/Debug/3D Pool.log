@@ -1,15 +1,10 @@
-﻿Build started 19/01/2015 02:29:38.
-     1>Project "D:\Programming\Playground\Graphics\OpenGL\Pool\3D Pool\3D Pool\3D Pool.vcxproj" on node 2 (Build target(s)).
+﻿Build started 23/01/2015 14:52:09.
+     1>Project "D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\3D Pool\3D Pool.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\Programming\SFML-2.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp Main.cpp Music.cpp Room.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\Programming\SFML-2.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Room.cpp
          Room.cpp
-         Music.cpp
-         Game.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         Main.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Programming\Playground\Graphics\OpenGL\Pool\3D Pool\Debug\3D Pool.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\Programming\SFML-2.2\lib" "sfml-graphics.lib" "sfml-window.lib" "sfml-system.lib" "sfml-audio.lib" opengl32.lib openal32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Programming\Playground\Graphics\OpenGL\Pool\3D Pool\Debug\3D Pool.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Programming\Playground\Graphics\OpenGL\Pool\3D Pool\Debug\3D Pool.lib" /MACHINE:X86 Debug\AmbientLight.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Debug\3D Pool.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\Programming\SFML-2.2\lib" "sfml-graphics.lib" "sfml-window.lib" "sfml-system.lib" "sfml-audio.lib" opengl32.lib openal32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Debug\3D Pool.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Debug\3D Pool.lib" /MACHINE:X86 Debug\AmbientLight.obj
          Debug\Ball.obj
          Debug\Bumper.obj
          Debug\Cue.obj
@@ -21,9 +16,9 @@
          Debug\Pocket.obj
          Debug\Room.obj
          Debug\SimpleModelLoader.obj
-         3D Pool.vcxproj -> D:\Programming\Playground\Graphics\OpenGL\Pool\3D Pool\Debug\3D Pool.exe
-     1>Done Building Project "D:\Programming\Playground\Graphics\OpenGL\Pool\3D Pool\3D Pool\3D Pool.vcxproj" (Build target(s)).
+         3D Pool.vcxproj -> D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Debug\3D Pool.exe
+     1>Done Building Project "D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\3D Pool\3D Pool.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.20
+Time Elapsed 00:00:00.97
