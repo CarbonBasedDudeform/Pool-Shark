@@ -6,7 +6,7 @@
 #include "Game.h"
 
 //----------CONST DEFINITIONS----------
-const sf::String Game::GAME_TITLE = "test";
+const char * Game::GAME_TITLE = "test";
 
 
 //----------CONSTRUCTORS AND DESTRUCTORS----------
@@ -17,6 +17,7 @@ Game::Game()
 
 Game::~Game()
 {
+	SDL_Quit();
 }
 
 Game * Game::_instance = nullptr;
@@ -30,38 +31,57 @@ Game * Game::GetInstance() {
 
 //---------MAIN GUT OF THE CODE, INITIALISING, GAME LOOP, RENDERING--------------
 void Game::Init() {
-	_window = new sf::RenderWindow(sf::VideoMode(Game::SCREEN_WIDTH, Game::SCREEN_HEIGHT), Game::GAME_TITLE);
 	
-	_backgroundMusic = new Music();
-	_backgroundMusic->Play();
+	//Initialize SDL
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+	{
+		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
+	}
+	else {
+		_surface = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_SWSURFACE | SDL_OPENGL);
 
-	_drawables = new std::list<IDrawable *>();
-	_drawables->push_back(new Room());
+		_running = true;
 
-	//ensures use of vertex arrays is possible as all drawables will use vertex arrays
-	//NOTE: should be switching to VBOs for most stuff so this might not be necessery
-	glEnableClientState(GL_VERTEX_ARRAY);
+		_backgroundMusic = new Music();
+		_backgroundMusic->Play();
+
+		_drawables = new std::list<IDrawable *>();
+		_drawables->push_back(new Room());
+
+		//setup opengl
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		gluPerspective(45.0, (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1, 1000.0);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+
+		glEnable(GL_VERTEX_ARRAY);
+		glEnable(GL_COLOR_ARRAY);
+		glEnable(GL_CULL_FACE);
+		glFrontFace(AD_CLOCKWISE);
+		glCullFace(GL_BACK);
+	}
 }
 
 void Game::Loop() {
-
-	while (_window->isOpen())
-	{
-		sf::Event event;
-		while (_window->pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				_window->close();
+	SDL_Event e;
+	while (_running) {
+		while (SDL_PollEvent(&e) != 0) {
+			if (e.type == SDL_QUIT) {
+				_running = false;
+			}
 		}
-
-		_window->clear();
-		Draw();
-		_window->display();
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		Draw();		
+		SDL_GL_SwapBuffers();
 	}
+	
 }
 
 void Game::Draw() const {
 	for (auto iterator = _drawables->begin(); iterator != _drawables->end(); ++iterator) {
 		iterator._Ptr->_Myval->Draw();
+		iterator._Ptr->_Myval->rotation += 0.1f;
 	}
 }

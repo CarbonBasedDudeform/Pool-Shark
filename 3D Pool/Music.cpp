@@ -10,22 +10,15 @@ Music::Music()
 	*/
 
 #ifdef NDEBUG
-	_music = new sf::Music();
-	_music->openFromFile("../Music/loop.ogg");
-	_music->setLoop(true);
-	_music->setPosition(10.0f, 0.0f, 10.0f);
-	_music->setVolume(25.0f);
-	_music->setAttenuation(50.0f);
 #endif
 }
 
 
 Music::~Music()
 {
-	delete _music;
 }
 
 void Music::Play()
 {
-	if (_music) _music->play();
+	//if (_music) _music->play();
 }

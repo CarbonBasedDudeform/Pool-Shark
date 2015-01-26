@@ -1,7 +1,10 @@
 #pragma once
-//SFML
-#include <SFML\Graphics.hpp>
-#include <SFML/OpenGL.hpp>
+//SDL
+#include <SDL.h>
+#include <GL/glew.h>
+#include <GL/GLU.h>
+
+
 
 //STL
 #include <list>
@@ -21,7 +24,7 @@ class Game
 public:
 	static const int SCREEN_WIDTH = 800;
 	static const int SCREEN_HEIGHT = 600;
-	static const sf::String GAME_TITLE;
+	static const char * GAME_TITLE;
 
 	static Game * GetInstance();
 	~Game();
@@ -34,8 +37,9 @@ private:
 	Game();
 	static Game * _instance;
 
-	//SFML
-	sf::RenderWindow * _window;
+	//SDL
+	SDL_Surface * _surface;
+	bool _running;
 
 	//Music
 	Music * _backgroundMusic;

@@ -13,7 +13,8 @@
 */
 
 #pragma once
-#include "SFML/OpenGL.hpp"
+#include <Windows.h>
+#include <GL\GL.h>
 #include <fstream>
 
 class SimpleModelLoader
