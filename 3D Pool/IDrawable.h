@@ -6,6 +6,10 @@
 	this class.
 */
 #pragma once
+#include <SDL.h>
+#include <GL/glew.h>
+#include <GL\GL.h>
+#include "Vector.h"
 
 class IDrawable
 {

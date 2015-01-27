@@ -41,6 +41,7 @@ void Game::Init() {
 
 		_running = true;
 
+		_camera = new Camera();
 		_drawables = new Room();
 		//auto room = new Room();
 		//_drawables->
@@ -78,7 +79,7 @@ void Game::Loop() {
 		}
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glLoadIdentity();
-		glTranslatef(0, -2.0f, -2.0f);
+		_camera->Draw();
 		Draw();		
 		SDL_GL_SwapBuffers();
 	}

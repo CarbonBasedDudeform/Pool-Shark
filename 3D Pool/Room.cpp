@@ -1,6 +1,5 @@
 #include "Room.h"
 
-
 Room::Room()
 {
 	_size = 5.0f;

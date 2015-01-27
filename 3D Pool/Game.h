@@ -4,8 +4,6 @@
 #include <GL/glew.h>
 #include <GL/GLU.h>
 
-
-
 //STL
 #include <vector>
 
@@ -16,6 +14,7 @@
 #include "Music.h"
 
 //Game Objects
+#include "Camera.h"
 #include "Room.h"
 
 
@@ -47,6 +46,7 @@ private:
 	Music * _backgroundMusic;
 
 	//Rendering arrays and that
+	Camera * _camera;
 	Room * _drawables;
 	void Draw() const;
 };
