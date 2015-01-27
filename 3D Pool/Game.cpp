@@ -47,8 +47,6 @@ void Game::Init() {
 		_drawables->push_back(new Table());
 
 		OpenGLInit();
-
-		//_backgroundMusic = new Music();
 	}
 }
 
