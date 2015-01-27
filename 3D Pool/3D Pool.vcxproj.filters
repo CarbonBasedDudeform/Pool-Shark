@@ -93,6 +93,9 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files\General</Filter>
     </ClCompile>
+    <ClCompile Include="Leg.cpp">
+      <Filter>Source Files\Environment\Table</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Physics.h">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Leg.h">
+      <Filter>Header Files\Environment\Table</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

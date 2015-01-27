@@ -1,6 +1,6 @@
 #include "SimpleModelLoader.h"
 
-
+#include <iostream>
 SimpleModel * SimpleModelLoader::Load(char * file)
 {
 	std::ifstream input;
@@ -12,6 +12,7 @@ SimpleModel * SimpleModelLoader::Load(char * file)
 	GLfloat * verts_array = new GLfloat[number_of_vertices];
 
 	GLfloat temp;
+
 	for (int i = 0; i <= number_of_vertices; ++i)
 	{
 		input >> temp;
@@ -19,7 +20,7 @@ SimpleModel * SimpleModelLoader::Load(char * file)
 	}
 	SimpleModel * obj = new SimpleModel();
 	obj->Data = verts_array;
-	obj->Amount = number_of_vertices;
+	obj->Amount = number_of_vertices/3;
 	return obj;
 }
 
