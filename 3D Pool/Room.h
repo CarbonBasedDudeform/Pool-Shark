@@ -15,7 +15,8 @@ private:
 
 	GLfloat * _colours;
 	GLfloat * _vertices;
-	float _size;
-	
+
+	Vector * _position;
+	Vector * _size;
 };
 
