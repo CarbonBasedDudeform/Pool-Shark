@@ -6,12 +6,9 @@
 	this class.
 */
 #pragma once
-#include <GL/glew.h>
 
 class IDrawable
 {
 public:
 	virtual void Draw() const = 0;
-	float rotation;
-
 };

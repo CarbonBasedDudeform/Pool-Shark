@@ -31,7 +31,6 @@ Game * Game::GetInstance() {
 
 //---------MAIN GUT OF THE CODE, INITIALISING, GAME LOOP, RENDERING--------------
 void Game::Init() {
-	
 	//Initialize SDL
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
@@ -42,26 +41,31 @@ void Game::Init() {
 
 		_running = true;
 
-		_backgroundMusic = new Music();
-		_backgroundMusic->Play();
+		_drawables = new Room();
+		//auto room = new Room();
+		//_drawables->
 
-		_drawables = new std::list<IDrawable *>();
-		_drawables->push_back(new Room());
+		OpenGLInit();
 
-		//setup opengl
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-		gluPerspective(45.0, (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1, 1000.0);
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-
-		glEnable(GL_VERTEX_ARRAY);
-		glEnable(GL_COLOR_ARRAY);
-		glEnable(GL_CULL_FACE);
-		glFrontFace(AD_CLOCKWISE);
-		glCullFace(GL_BACK);
+		//_backgroundMusic = new Music();
 	}
+}
+
+void Game::OpenGLInit() {
+	//setup opengl
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(45.0, (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 1.0, 1000.0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_VERTEX_ARRAY);
+	glEnable(GL_COLOR_ARRAY);
+	glEnable(GL_CULL_FACE);
+	glFrontFace(AD_CLOCKWISE);
+	glCullFace(GL_BACK);
 }
 
 void Game::Loop() {
@@ -73,6 +77,8 @@ void Game::Loop() {
 			}
 		}
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glLoadIdentity();
+		glTranslatef(0, -2.0f, -2.0f);
 		Draw();		
 		SDL_GL_SwapBuffers();
 	}
@@ -80,8 +86,5 @@ void Game::Loop() {
 }
 
 void Game::Draw() const {
-	for (auto iterator = _drawables->begin(); iterator != _drawables->end(); ++iterator) {
-		iterator._Ptr->_Myval->Draw();
-		iterator._Ptr->_Myval->rotation += 0.1f;
-	}
+	_drawables->Draw();
 }

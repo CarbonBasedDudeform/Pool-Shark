@@ -1,21 +1,11 @@
-﻿Build started 26/01/2015 15:20:48.
+﻿Build started 26/01/2015 18:17:39.
      1>Project "D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\3D Pool\3D Pool.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\Programming\SFML-2.2\include" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AmbientLight.cpp Ball.cpp Bumper.cpp Cue.cpp Game.cpp Main.cpp Music.cpp OverheadLight.cpp Physics.cpp Pocket.cpp Room.cpp SimpleModelLoader.cpp
-         AmbientLight.cpp
-         Ball.cpp
-         Bumper.cpp
-         Cue.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\Programming\SDL-1.2.15\include" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp
          Game.cpp
-         Main.cpp
-         Music.cpp
-         OverheadLight.cpp
-         Physics.cpp
-         Pocket.cpp
-         Room.cpp
-         SimpleModelLoader.cpp
+     1>Game.cpp(83): warning C4018: '<' : signed/unsigned mismatch
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Release\3D Pool.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\Programming\glew-1.11.0\lib\Release\Win32" SDL2.lib SDL2main.lib opengl32.lib glu32.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Release\3D Pool.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Release\3D Pool.lib" /MACHINE:X86 /SAFESEH Release\AmbientLight.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Release\3D Pool.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\Programming\SDL-1.2.15\lib\x86" /LIBPATH:"D:\Programming\glew-1.11.0\lib\Release\Win32" SDL.lib SDLmain.lib opengl32.lib glu32.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Release\3D Pool.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Release\3D Pool.lib" /MACHINE:X86 /SAFESEH Release\AmbientLight.obj
          Release\Ball.obj
          Release\Bumper.obj
          Release\Cue.obj
@@ -27,18 +17,11 @@
          Release\Pocket.obj
          Release\Room.obj
          Release\SimpleModelLoader.obj
-     1>Music.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::SoundStream::setLoop(bool)" (__imp_?setLoop@SoundStream@sf@@QAEX_N@Z)
-     1>Music.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::SoundSource::setAttenuation(float)" (__imp_?setAttenuation@SoundSource@sf@@QAEXM@Z)
-     1>Music.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::SoundSource::setPosition(float,float,float)" (__imp_?setPosition@SoundSource@sf@@QAEXMMM@Z)
-     1>Music.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::SoundSource::setVolume(float)" (__imp_?setVolume@SoundSource@sf@@QAEXM@Z)
-     1>Music.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) protected: virtual void __thiscall sf::Music::onSeek(class sf::Time)" (__imp_?onSeek@Music@sf@@MAEXVTime@2@@Z)
-     1>Music.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) protected: virtual bool __thiscall sf::Music::onGetData(struct sf::SoundStream::Chunk &)" (__imp_?onGetData@Music@sf@@MAE_NAAUChunk@SoundStream@2@@Z)
-     1>Music.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Music::openFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (__imp_?openFromFile@Music@sf@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
-     1>Music.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall sf::Music::~Music(void)" (__imp_??1Music@sf@@UAE@XZ)
-     1>Music.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Music::Music(void)" (__imp_??0Music@sf@@QAE@XZ)
-     1>D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Release\3D Pool.exe : fatal error LNK1120: 9 unresolved externals
-     1>Done Building Project "D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\3D Pool\3D Pool.vcxproj" (Build target(s)) -- FAILED.
+         Generating code
+         Finished generating code
+         3D Pool.vcxproj -> D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\Release\3D Pool.exe
+     1>Done Building Project "D:\Programming\Playground\Graphics\OpenGL\Pool-Shark\3D Pool\3D Pool.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:04.04
+Time Elapsed 00:00:01.20

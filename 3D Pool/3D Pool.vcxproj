@@ -41,13 +41,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Programming\glew-1.11.0\include;D:\Programming\SDL2-2.0.3\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Programming\glew-1.11.0\lib\Release\Win32;D:\Programming\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Programming\glew-1.11.0\include;D:\Programming\SDL-1.2.15\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Programming\glew-1.11.0\lib\Release\Win32;D:\Programming\SDL-1.2.15\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Programming\glew-1.11.0\include;D:\Programming\SDL2-2.0.3\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Programming\glew-1.11.0\lib\Release\Win32;D:\Programming\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Programming\glew-1.11.0\include;D:\Programming\SDL-1.2.15\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Programming\glew-1.11.0\lib\Release\Win32;D:\Programming\SDL-1.2.15\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -91,6 +91,7 @@
     <ClCompile Include="AmbientLight.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bumper.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cue.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -100,11 +101,13 @@
     <ClCompile Include="Pocket.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="SimpleModelLoader.cpp" />
+    <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AmbientLight.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bumper.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Cue.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="Game.h" />
@@ -114,6 +117,7 @@
     <ClInclude Include="Pocket.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="SimpleModelLoader.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

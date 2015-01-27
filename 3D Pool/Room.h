@@ -12,7 +12,6 @@ public:
 	void Draw() const override;
 private:
 	const int NUM_OF_VERTICES = 108;
-	GLuint * _vbos;
 
 	GLfloat * _colours;
 	GLfloat * _vertices;

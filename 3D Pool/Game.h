@@ -7,7 +7,7 @@
 
 
 //STL
-#include <list>
+#include <vector>
 
 //Interfaces
 #include "IDrawable.h"
@@ -41,11 +41,13 @@ private:
 	SDL_Surface * _surface;
 	bool _running;
 
+	void OpenGLInit();
+
 	//Music
 	Music * _backgroundMusic;
 
-	//Rendering
-	std::list<IDrawable *> * _drawables;
+	//Rendering arrays and that
+	Room * _drawables;
 	void Draw() const;
 };
 
