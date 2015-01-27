@@ -50,6 +50,7 @@ void Game::Init() {
 	}
 }
 
+//OpenGL specific initialisation tasks
 void Game::OpenGLInit() {
 	//setup opengl
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -71,9 +72,7 @@ void Game::Loop() {
 	SDL_Event e;
 	while (_running) {
 		while (SDL_PollEvent(&e) != 0) {
-			if (e.type == SDL_QUIT) {
-				_running = false;
-			}
+			ProcessInput(e);
 		}
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glLoadIdentity();
@@ -84,9 +83,34 @@ void Game::Loop() {
 	
 }
 
+
+//render everything
 void Game::Draw() const {
 	for (int i = 0; i < _drawables->size(); i++)
 	{
 		_drawables->at(i)->Draw();
+	}
+}
+
+//Process any input from the user
+void Game::ProcessInput(SDL_Event & e) {
+	if (e.type == SDL_QUIT) {
+		_running = false;
+	}
+
+	//if mouse moving to the left
+	if (e.motion.xrel < 0) {
+		_camera->DecreaseYaw();
+	}
+	else if (e.motion.xrel > 0) { //...else, to right
+		_camera->IncreaseYaw();
+	}
+
+	//moving up
+	if (e.motion.yrel < 0) {
+		_camera->IncreaseRoll();
+	}
+	else if (e.motion.yrel > 0) { //moving down
+		_camera->DecreaseRoll();
 	}
 }

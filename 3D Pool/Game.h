@@ -40,6 +40,7 @@ private:
 	//SDL
 	SDL_Surface * _surface;
 	bool _running;
+	void ProcessInput(SDL_Event &);
 
 	void OpenGLInit();
 
