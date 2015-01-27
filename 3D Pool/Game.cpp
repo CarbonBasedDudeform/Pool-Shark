@@ -45,8 +45,6 @@ void Game::Init() {
 		_drawables = new std::vector<IDrawable *>();
 		_drawables->push_back(new Room());
 		_drawables->push_back(new Table());
-		//auto room = new Room();
-		//_drawables->
 
 		OpenGLInit();
 

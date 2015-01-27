@@ -1,7 +1,7 @@
 #include "SimpleModelLoader.h"
 
 
-GLfloat * SimpleModelLoader::Load(char * file)
+SimpleModel * SimpleModelLoader::Load(char * file)
 {
 	std::ifstream input;
 	input.open(file);
@@ -17,8 +17,10 @@ GLfloat * SimpleModelLoader::Load(char * file)
 		input >> temp;
 		verts_array[i] = (GLfloat)temp;
 	}
-
-	return verts_array;
+	SimpleModel * obj = new SimpleModel();
+	obj->Data = verts_array;
+	obj->Amount = number_of_vertices;
+	return obj;
 }
 
 //Private, not supposed to be able to initiate a class of this type

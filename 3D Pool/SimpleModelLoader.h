@@ -17,12 +17,22 @@
 #include <GL\GL.h>
 #include <fstream>
 
+class SimpleModel
+{
+public:
+	SimpleModel() { };
+	~SimpleModel() { /*potential dangling pointer (data), objects getting this class should take care of it though */ };
+	GLfloat * Data;
+	int Amount;
+};
+
 class SimpleModelLoader
 {
 public:
-	static GLfloat * Load(char * file);
+	static SimpleModel * Load(char * file);
 private:
 	SimpleModelLoader();
 	~SimpleModelLoader();
 };
+
 

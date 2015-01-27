@@ -9,7 +9,5 @@ public:
 
 	//IDrawable overide
 	void Draw() const override;
-private:
-	const int NUM_OF_VERTICES = 108;
 };
 

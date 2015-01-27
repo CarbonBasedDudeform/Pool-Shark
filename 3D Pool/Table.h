@@ -7,5 +7,6 @@ public:
 	Table();
 	~Table();
 	void Draw() const override;
+	int col;
 };
 

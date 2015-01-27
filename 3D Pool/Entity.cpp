@@ -5,7 +5,6 @@ Entity::Entity()
 {
 }
 
-
 Entity::~Entity()
 {
 }

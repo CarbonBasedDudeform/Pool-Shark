@@ -15,6 +15,8 @@ protected:
 	GLfloat * _colours;
 	GLfloat * _vertices;
 
+	int num_of_verts;
+
 	Vector * _position;
 	Vector * _size;
 };

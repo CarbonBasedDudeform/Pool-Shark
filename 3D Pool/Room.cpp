@@ -3,8 +3,12 @@
 Room::Room()
 {
 	//Load vertices from file
-	_vertices = SimpleModelLoader::Load("Models/room.txt");
-	_colours = SimpleModelLoader::Load("Models/room colours.txt");
+	auto verts = SimpleModelLoader::Load("Models/room.txt");
+	_vertices = verts->Data;
+	num_of_verts = verts->Amount;
+	auto colours = SimpleModelLoader::Load("Models/room colours.txt");
+	_colours = colours->Data;
+
 	_position = new Vector();
 	_size = new Vector(10.0f, 5.0f, 10.0f);
 }
@@ -21,6 +25,6 @@ void Room::Draw() const {
 		glScalef(_size->X, _size->Y, _size->Z);
 		glColorPointer(3, GL_FLOAT, 0, _colours);
 		glVertexPointer(3, GL_FLOAT, 0, _vertices);
-		glDrawArrays(GL_TRIANGLES, 0, NUM_OF_VERTICES);
+		glDrawArrays(GL_TRIANGLES, 0, num_of_verts);
 	glPopMatrix();
 }
