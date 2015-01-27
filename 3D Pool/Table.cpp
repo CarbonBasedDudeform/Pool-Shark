@@ -13,11 +13,10 @@ Table::Table()
 
 	_legs = new std::vector<Leg *>();
 	//four legs on a table
-	_legs->push_back(new Leg(1.0f, 0.0f, 0.0f));
-	_legs->push_back(new Leg(-1.0f, 0.0f, 0.0f));
-	_legs->push_back(new Leg(1.0f, 0.0f, -1.0f));
-	_legs->push_back(new Leg(-1.0f, 0.0f, -1.0f));
-
+	_legs->push_back(new Leg(0.75f, 0.0f, -0.75f)); //1 is the size of the leg, moving it back 1 to align the edge of the leg with the edge of the table, 0.75f to inset the legs a bit
+	_legs->push_back(new Leg(-0.75f, 0.0f, -0.75f));
+	_legs->push_back(new Leg(0.75f, 0.0f, (-1.0f)*_size->Z - 0.25f));
+	_legs->push_back(new Leg(-0.75f, 0.0f, (-1.0f)*_size->Z - 0.25f));
 }
 
 

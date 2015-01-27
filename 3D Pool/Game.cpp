@@ -43,7 +43,7 @@ void Game::Init() {
 
 		_camera = new Camera();
 		_drawables = new std::vector<IDrawable *>();
-		_drawables->push_back(new Room());
+		//_drawables->push_back(new Room());
 		_drawables->push_back(new Table());
 
 		OpenGLInit();

@@ -3,24 +3,24 @@
 
 Leg::Leg(float X, float Y, float Z)
 {
-	auto verts = SimpleModelLoader::Load("Models/room.txt");
+	auto verts = SimpleModelLoader::Load("Models/leg.txt");
 	_vertices = verts->Data;
 	num_of_verts = verts->Amount;
-	auto colours = SimpleModelLoader::Load("Models/room colours.txt");
+	auto colours = SimpleModelLoader::Load("Models/leg colours.txt");
 	_colours = colours->Data;
+	_size = new Vector(0.25f, 1.0f, 0.25f);
 	_position = new Vector(X, Y, Z);
-	_size = new Vector(1.0f, 1.0f, 1.0f);
 }
 
 Leg::Leg(Vector &vec)
 {
-	auto verts = SimpleModelLoader::Load("Models/room.txt");
+	auto verts = SimpleModelLoader::Load("Models/leg.txt");
 	_vertices = verts->Data;
 	num_of_verts = verts->Amount;
-	auto colours = SimpleModelLoader::Load("Models/room colours.txt");
+	auto colours = SimpleModelLoader::Load("Models/leg colours.txt");
 	_colours = colours->Data;
 	_position = new Vector(vec.X, vec.Y, vec.Z);
-	_size = new Vector(1.0f, 10.0f, 1.0f);
+	_size = new Vector(0.5f, 1.0f, 0.5f);
 }
 
 Leg::~Leg()
