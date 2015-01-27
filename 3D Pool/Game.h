@@ -16,6 +16,7 @@
 //Game Objects
 #include "Camera.h"
 #include "Room.h"
+#include "Table.h"
 
 
 class Game
@@ -47,7 +48,7 @@ private:
 
 	//Rendering arrays and that
 	Camera * _camera;
-	Room * _drawables;
+	std::vector<IDrawable *> * _drawables;
 	void Draw() const;
 };
 

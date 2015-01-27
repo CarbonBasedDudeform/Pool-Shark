@@ -42,7 +42,9 @@ void Game::Init() {
 		_running = true;
 
 		_camera = new Camera();
-		_drawables = new Room();
+		_drawables = new std::vector<IDrawable *>();
+		_drawables->push_back(new Room());
+		_drawables->push_back(new Table());
 		//auto room = new Room();
 		//_drawables->
 
@@ -87,5 +89,8 @@ void Game::Loop() {
 }
 
 void Game::Draw() const {
-	_drawables->Draw();
+	for (int i = 0; i < _drawables->size(); i++)
+	{
+		_drawables->at(i)->Draw();
+	}
 }

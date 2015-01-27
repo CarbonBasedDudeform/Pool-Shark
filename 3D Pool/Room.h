@@ -1,8 +1,7 @@
 #pragma once
-#include "IDrawable.h"
-#include "SimpleModelLoader.h"
+#include "Entity.h"
 
-class Room : public IDrawable
+class Room : public Entity
 {
 public:
 	Room();
@@ -12,11 +11,5 @@ public:
 	void Draw() const override;
 private:
 	const int NUM_OF_VERTICES = 108;
-
-	GLfloat * _colours;
-	GLfloat * _vertices;
-
-	Vector * _position;
-	Vector * _size;
 };
 

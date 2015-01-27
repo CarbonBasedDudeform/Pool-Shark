@@ -19,23 +19,23 @@
     <Filter Include="Source Files\General">
       <UniqueIdentifier>{4d41097d-ec97-4671-be3b-8b7d6c13de08}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Table">
-      <UniqueIdentifier>{356271a5-9eb3-4dc9-bf95-cdf89d68ffea}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Gameplay Elements">
       <UniqueIdentifier>{ff58d1d2-82ea-47a8-84b6-fdbf08931977}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Environment">
       <UniqueIdentifier>{ee9d9a31-4773-4321-b914-b814f05e5ce0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Table">
-      <UniqueIdentifier>{59e68212-17e3-4409-b0b5-8cd7ae84aa65}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Gameplay Elements">
       <UniqueIdentifier>{6e9e3b15-66ef-4528-a087-4fb08ef124f1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Environment">
       <UniqueIdentifier>{85a84650-220e-4ef4-8a98-24b9df6c42de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Environment\Table">
+      <UniqueIdentifier>{356271a5-9eb3-4dc9-bf95-cdf89d68ffea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Environment\Table">
+      <UniqueIdentifier>{59e68212-17e3-4409-b0b5-8cd7ae84aa65}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,10 +49,10 @@
       <Filter>Source Files\General</Filter>
     </ClCompile>
     <ClCompile Include="Bumper.cpp">
-      <Filter>Source Files\Table</Filter>
+      <Filter>Source Files\Environment\Table</Filter>
     </ClCompile>
     <ClCompile Include="Pocket.cpp">
-      <Filter>Source Files\Table</Filter>
+      <Filter>Source Files\Environment\Table</Filter>
     </ClCompile>
     <ClCompile Include="Cue.cpp">
       <Filter>Source Files\Gameplay Elements</Filter>
@@ -81,6 +81,12 @@
     <ClCompile Include="Vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Table.cpp">
+      <Filter>Source Files\Environment\Table</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Physics.h">
@@ -90,10 +96,10 @@
       <Filter>Header Files\General</Filter>
     </ClInclude>
     <ClInclude Include="Bumper.h">
-      <Filter>Header Files\Table</Filter>
+      <Filter>Header Files\Environment\Table</Filter>
     </ClInclude>
     <ClInclude Include="Pocket.h">
-      <Filter>Header Files\Table</Filter>
+      <Filter>Header Files\Environment\Table</Filter>
     </ClInclude>
     <ClInclude Include="Ball.h">
       <Filter>Header Files\Gameplay Elements</Filter>
@@ -123,6 +129,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Table.h">
+      <Filter>Header Files\Environment\Table</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
