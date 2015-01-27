@@ -2,9 +2,9 @@
 
 Camera::Camera()
 {
-	Position = new Vector(0.0f, -2.0f, -20.0f);
+	Position = new Vector(0.0f, -2.0f, -2.0f);
 	_yaw = _pitch = _roll = 0.0f;
-	_speed = 1.0f;
+	_speed = 0.25f;
 }
 
 
@@ -28,9 +28,9 @@ void Camera::DecreaseYaw() {
 }
 
 void Camera::IncreaseRoll() {
-	_roll += _speed;
+	if (_roll < MAXIMUM_ROLL) _roll += _speed;
 }
 
 void Camera::DecreaseRoll() {
-	_roll -= _speed;
+	if (_roll > MINIMUM_ROLL) _roll -= _speed;
 }
