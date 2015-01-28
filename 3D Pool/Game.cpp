@@ -61,8 +61,13 @@ void Game::OpenGLInit() {
 	glLoadIdentity();
 
 	glEnable(GL_DEPTH_TEST);
+	glDepthMask(GL_TRUE);
+	glDepthFunc(GL_LEQUAL);
+	glDepthRange(0.0f, 1.0f);
+
 	glEnable(GL_VERTEX_ARRAY);
 	glEnable(GL_COLOR_ARRAY);
+
 	glEnable(GL_CULL_FACE);
 	glFrontFace(AD_CLOCKWISE);
 	glCullFace(GL_BACK);
@@ -75,14 +80,13 @@ void Game::Loop() {
 			ProcessInput(e);
 		}
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 		glLoadIdentity();
 		_camera->Draw();
 		Draw();		
 		SDL_GL_SwapBuffers();
 	}
-	
 }
-
 
 //render everything
 void Game::Draw() const {

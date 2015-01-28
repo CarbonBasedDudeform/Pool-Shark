@@ -6,7 +6,7 @@ class Camera : public IDrawable
 public:
 	Camera();
 	~Camera();
-	Vector * Position;
+
 	void Draw() const override;
 	void IncreaseYaw();
 	void DecreaseYaw();
@@ -14,6 +14,7 @@ public:
 	void DecreaseRoll();
 
 private:
+	Vector * _position;
 	float _speed; //speed at which camera rotates
 	
 	//min and max for camera control, these give the user a nice feel but don't allow them to go too low where culling makes the table disappear

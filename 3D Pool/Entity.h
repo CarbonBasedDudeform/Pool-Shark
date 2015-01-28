@@ -11,6 +11,7 @@ class Entity : public IDrawable
 public:
 	Entity();
 	virtual ~Entity();
+	virtual void Draw() const override;
 protected:
 	GLfloat * _colours;
 	GLfloat * _vertices;
