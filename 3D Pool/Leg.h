@@ -4,9 +4,8 @@ class Leg :
 	public Entity
 {
 public:
-	Leg(float, float, float);
+	Leg(RenderSettings);
 	Leg(Vector&);
 	~Leg();
-	void Draw() const override;
 };
 

@@ -4,7 +4,7 @@ Camera::Camera()
 {
 	_position = new Vector(0.0f, -2.0f, -2.0f);
 	_yaw = _pitch = _roll = 0.0f;
-	_speed = 0.25f;
+	_speed = 0.5f;
 }
 
 

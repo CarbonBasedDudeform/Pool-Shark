@@ -43,8 +43,23 @@ void Game::Init() {
 
 		_camera = new Camera();
 		_drawables = new std::vector<IDrawable *>();
-		//_drawables->push_back(new Room());
-		_drawables->push_back(new Table());
+		RenderSettings roomSettings;
+		roomSettings.Position.X = roomSettings.Position.Y = roomSettings.Position.Z = 0.0f; //set em all to 0
+		roomSettings.Scale.X = 10.0f; roomSettings.Scale.Y = 5.0f; roomSettings.Scale.Z = 10.0f;
+		roomSettings.Rotation = 0.0f;
+		roomSettings.Resource = "Models/room.txt";
+		roomSettings.Colours = "Models/room colours.txt";
+		
+		_drawables->push_back(new Room(roomSettings));
+
+		RenderSettings tableSettings;
+		tableSettings.Position.X = 0.0f; tableSettings.Position.Y = 1.0f; tableSettings.Position.Z = -1.0f;
+		tableSettings.Scale.X = 2.0f; tableSettings.Scale.Y = 1.0f; tableSettings.Scale.Z = 4.0f;
+		tableSettings.Rotation = 0.0f;
+		tableSettings.Resource = "Models/table.txt";
+		tableSettings.Colours = "Models/table colours.txt";
+
+		_drawables->push_back(new Table(tableSettings));
 
 		OpenGLInit();
 	}

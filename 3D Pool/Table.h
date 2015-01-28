@@ -3,11 +3,13 @@
 #include <vector>
 #include "Leg.h"
 #include "Bumper.h"
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 class Table : public Entity
 {
 public:
-	Table();
+	Table(RenderSettings);
 	~Table();
 	void Draw() const override;
 private:

@@ -4,10 +4,7 @@
 class Room : public Entity
 {
 public:
-	Room();
+	Room(RenderSettings);
 	~Room();
-
-	//IDrawable overide
-	void Draw() const override;
 };
 

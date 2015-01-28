@@ -19,6 +19,8 @@ Vector::Vector(float uniform)
 	X = Y = Z = uniform;
 }
 
+//yay copy constructor
+Vector::Vector(Vector & copy) : X(copy.X), Y(copy.Y), Z(copy.Z) {}
 
 Vector::~Vector()
 {
