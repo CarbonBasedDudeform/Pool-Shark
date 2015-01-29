@@ -13,6 +13,9 @@ public:
 	~Table();
 	void Draw() const override;
 private:
+	void LoadLegs();
+	void LoadBumpers();
+
 	std::vector<Leg *> * _legs;
 	std::vector<Bumper *> * _bumpers;
 };

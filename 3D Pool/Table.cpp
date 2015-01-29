@@ -11,7 +11,16 @@ Table::Table(RenderSettings settings)
 	_position = new Vector(settings.Position);
 	_size = new Vector(settings.Scale);
 	_rotation = settings.Rotation;
+	LoadLegs();
+	LoadBumpers();
+}
 
+
+Table::~Table()
+{
+}
+
+void Table::LoadLegs() {
 	_legs = new std::vector<Leg *>();
 	//four legs on a table
 	RenderSettings leg1;
@@ -45,12 +54,14 @@ Table::Table(RenderSettings settings)
 	leg4.Resource = "Models/leg.txt";
 	leg4.Colours = "Models/leg colours.txt";
 	_legs->push_back(new Leg(leg4));
+}
 
+void Table::LoadBumpers() {
 	_bumpers = new std::vector<Bumper *>();
-	RenderSettings frontBumper; 
-	frontBumper.Position.X = 0.0f; frontBumper.Position.Y = 1.0f; frontBumper.Position.Z = -1.0f; 
+	RenderSettings frontBumper;
+	frontBumper.Position.X = 0.0f; frontBumper.Position.Y = 1.0f; frontBumper.Position.Z = -1.0f;
 	frontBumper.Scale.X = _size->X - 0.25f; frontBumper.Scale.Y = 0.25f; frontBumper.Scale.Z = 0.25f;
-	frontBumper.Rotation = M_PI /2 ;
+	frontBumper.Rotation = 0.0;
 	frontBumper.Resource = "Models/bumper.txt";
 	frontBumper.Colours = "Models/bumper colours.txt";
 
@@ -59,34 +70,29 @@ Table::Table(RenderSettings settings)
 	RenderSettings leftBumper;
 	leftBumper.Position.X = -1.0f; leftBumper.Position.Y = 1.0f; leftBumper.Position.Z = -1.0f;
 	leftBumper.Scale.X = 0.25f; leftBumper.Scale.Y = 0.25f; leftBumper.Scale.Z = _size->Z;
-	leftBumper.Rotation = M_PI;
-	leftBumper.Resource = "Models/bumper.txt";
-	leftBumper.Colours = "Models/bumper colours.txt";
-	
-	//_bumpers->push_back(new Bumper(leftBumper)); //left bumper
+	leftBumper.Rotation = 0.0f;
+	leftBumper.Resource = "Models/side bumper.txt";
+	leftBumper.Colours = "Models/side bumper colours.txt";
+
+	_bumpers->push_back(new Bumper(leftBumper)); //left bumper
 
 	RenderSettings rightBumper;
 	rightBumper.Position.X = 1.0f; rightBumper.Position.Y = 1.0f; rightBumper.Position.Z = -1.0f;
 	rightBumper.Scale.X = 0.25f; rightBumper.Scale.Y = 0.25f; rightBumper.Scale.Z = _size->Z;
-	rightBumper.Rotation = 2*M_PI;
-	rightBumper.Resource = "Models/bumper.txt";
-	rightBumper.Colours = "Models/bumper colours.txt";
+	rightBumper.Rotation = 0.0f;
+	rightBumper.Resource = "Models/side bumper.txt";
+	rightBumper.Colours = "Models/side bumper colours.txt";
 
-	//_bumpers->push_back(new Bumper(rightBumper)); //right bumper
+	_bumpers->push_back(new Bumper(rightBumper)); //right bumper
 
 	RenderSettings backBumper;
-	backBumper.Position.X = 0.0f; backBumper.Position.Y = 1.0f; backBumper.Position.Z = -1.0f + (-1.0f * _size->Z);
-	backBumper.Scale.X = _size->X - 0.25f; backBumper.Scale.Y = 0.25f; backBumper.Scale.Z = _size->Z;
+	backBumper.Position.X = 0.0f; backBumper.Position.Y = 1.0f; backBumper.Position.Z = -1.0f + (-1.0f * _size->Z) + 0.25f;
+	backBumper.Scale.X = _size->X - 0.25f; backBumper.Scale.Y = 0.25f; backBumper.Scale.Z = 0.25f;
 	backBumper.Rotation = M_PI / 2;
 	backBumper.Resource = "Models/bumper.txt";
 	backBumper.Colours = "Models/bumper colours.txt";
 
-	//_bumpers->push_back(new Bumper(backBumper)); //back bumper
-}
-
-
-Table::~Table()
-{
+	_bumpers->push_back(new Bumper(backBumper)); //back bumper
 }
 
 
