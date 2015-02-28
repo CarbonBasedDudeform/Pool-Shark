@@ -17,6 +17,7 @@
 #include "Camera.h"
 #include "Room.h"
 #include "Table.h"
+#include "Ball.h"
 
 
 class Game
