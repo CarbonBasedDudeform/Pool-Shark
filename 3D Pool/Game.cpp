@@ -50,7 +50,7 @@ void Game::Init() {
 		roomSettings.Resource = "Models/room.txt";
 		roomSettings.Colours = "Models/room colours.txt";
 		
-		//_drawables->push_back(new Room(roomSettings));
+		_drawables->push_back(new Room(roomSettings));
 
 		RenderSettings tableSettings;
 		tableSettings.Position.X = 0.0f; tableSettings.Position.Y = 1.0f; tableSettings.Position.Z = -1.0f;
@@ -59,7 +59,7 @@ void Game::Init() {
 		tableSettings.Resource = "Models/table.txt";
 		tableSettings.Colours = "Models/table colours.txt";
 
-		//_drawables->push_back(new Table(tableSettings));
+		_drawables->push_back(new Table(tableSettings));
 
 		RenderSettings ballSettings;
 		ballSettings.Position.X = 0.0f; ballSettings.Position.Y = 1.0f; ballSettings.Position.Z = -2.0f;

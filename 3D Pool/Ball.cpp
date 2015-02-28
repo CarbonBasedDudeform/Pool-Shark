@@ -17,7 +17,7 @@ GLfloat * GenerateColours(int size)
 Ball::Ball(RenderSettings settings)
 {
 	auto verts = SimpleModelLoader::Load(settings.Resource);
-	_radius = 1.0f;
+	_radius = 0.1f;
 	verts = Generate(verts);
 	num_of_verts = verts->Amount; //must be set before Generate is called as generate makes use of it. Could be improved by passing Simple Model in as a param to Generate
 	 //similar to above, used in Generate.
@@ -28,8 +28,6 @@ Ball::Ball(RenderSettings settings)
 	_size = new Vector(settings.Scale);
 	_position = new Vector(settings.Position);
 	_rotation = settings.Rotation;
-	
-	//Generate(_vertices);
 }
 
 
