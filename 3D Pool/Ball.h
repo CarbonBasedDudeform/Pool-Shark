@@ -2,10 +2,16 @@
 #include "Entity.h"
 #include <deque>
 
+class BallRenderSettings : public RenderSettings
+{
+public:
+	float Radius;
+};
+
 class Ball : public Entity
 {
 public:
-	Ball(RenderSettings);
+	Ball(BallRenderSettings);
 	~Ball();
 private:
 	SimpleModel * Generate(SimpleModel*);

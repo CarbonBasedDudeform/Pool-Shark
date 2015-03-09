@@ -38,7 +38,8 @@ void Game::Init() {
 	}
 	else {
 		_surface = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_SWSURFACE | SDL_OPENGL);
-
+		SDL_WM_SetCaption("Pool Shark", NULL);
+		
 		_running = true;
 
 		_camera = new Camera();
@@ -61,14 +62,12 @@ void Game::Init() {
 
 		_drawables->push_back(new Table(tableSettings));
 
-		RenderSettings ballSettings;
-		ballSettings.Position.X = 0.0f; ballSettings.Position.Y = 1.0f; ballSettings.Position.Z = -2.0f;
-		ballSettings.Scale.X = 1.0f; ballSettings.Scale.Y = 1.0f; ballSettings.Scale.Z = 1.0f;
-		ballSettings.Rotation = 0.0f;
-		ballSettings.Resource = "Models/diamond.txt";
-		ballSettings.Colours = "Models/diamond colours.txt";
+		_balls = GenerateBalls(6);
 
-		_drawables->push_back(new Ball(ballSettings));
+		for (auto iter = _balls->begin(); iter != _balls->end(); ++iter)
+		{
+			_drawables->push_back((*iter));
+		}
 
 		OpenGLInit();
 	}
@@ -141,4 +140,43 @@ void Game::ProcessInput(SDL_Event & e) {
 	else if (e.motion.yrel > 0) { //moving down
 		_camera->DecreaseRoll();
 	}
+}
+
+std::vector<Ball*> * Game::GenerateBalls(int num)
+{
+	auto balls = new std::vector<Ball *>();
+
+	BallRenderSettings ballSettings;
+	ballSettings.Position.X = 0.0f; ballSettings.Position.Y = 1.25f; ballSettings.Position.Z = -2.0f;
+	ballSettings.Scale.X = 1.0f; ballSettings.Scale.Y = 1.0f; ballSettings.Scale.Z = 1.0f;
+	ballSettings.Rotation = 0.0f;
+	ballSettings.Resource = "Models/diamond.txt";
+	ballSettings.Colours = "Models/diamond colours.txt";
+
+	ballSettings.Radius = 0.1f;
+
+	auto originalX = ballSettings.Position.X;
+	auto originalZ = ballSettings.Position.Z;
+	int counter = 0;
+	int row = 1;
+	auto ballDiameter = ballSettings.Radius * 2;
+	for (int i = 0; i < num; ++i)
+	{
+		ballSettings.Position.X = originalX;
+
+		if (counter >= row)
+		{
+			row++;
+			counter = 0;
+			originalX -= (((float)row/2.0f) * ballSettings.Radius);
+			ballSettings.Position.X = originalX ;
+			ballSettings.Position.Z -= (row*ballDiameter);
+		}
+
+		ballSettings.Position.X += (counter * ballDiameter);
+		balls->push_back(new Ball(ballSettings));
+		counter++;
+	}
+
+	return balls;
 }

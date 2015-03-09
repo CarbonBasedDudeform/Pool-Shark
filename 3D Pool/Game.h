@@ -23,8 +23,8 @@
 class Game
 {
 public:
-	static const int SCREEN_WIDTH = 800;
-	static const int SCREEN_HEIGHT = 600;
+	static const int SCREEN_WIDTH = 1920;
+	static const int SCREEN_HEIGHT = 1080;
 	static const char * GAME_TITLE;
 
 	static Game * GetInstance();
@@ -52,5 +52,8 @@ private:
 	Camera * _camera;
 	std::vector<IDrawable *> * _drawables;
 	void Draw() const;
+	
+	std::vector<Ball *> * _balls;
+	std::vector<Ball*> * GenerateBalls(int);
 };
 
