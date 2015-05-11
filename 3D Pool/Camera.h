@@ -1,5 +1,6 @@
 #pragma once
 #include "IDrawable.h"
+#include "Vector.h"
 
 class Camera : public IDrawable
 {
@@ -12,6 +13,7 @@ public:
 	void DecreaseYaw();
 	void IncreaseRoll();
 	void DecreaseRoll();
+	Vector GetNormalizedDirection() const;
 
 private:
 	Vector * _position;

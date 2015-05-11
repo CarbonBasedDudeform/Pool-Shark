@@ -37,7 +37,7 @@ void Game::Init() {
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 	}
 	else {
-		_surface = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_SWSURFACE | SDL_OPENGL);
+		_surface = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_OPENGL | SDL_FULLSCREEN);
 		SDL_WM_SetCaption("Pool Shark", NULL);
 		
 		_running = true;
@@ -46,7 +46,7 @@ void Game::Init() {
 		_drawables = new std::vector<IDrawable *>();
 		RenderSettings roomSettings;
 		roomSettings.Position.X = roomSettings.Position.Y = roomSettings.Position.Z = 0.0f; //set em all to 0
-		roomSettings.Scale.X = 10.0f; roomSettings.Scale.Y = 5.0f; roomSettings.Scale.Z = 10.0f;
+		roomSettings.Scale.X = 30.0f; roomSettings.Scale.Y = 30.0f; roomSettings.Scale.Z = 30.0f;
 		roomSettings.Rotation = 0.0f;
 		roomSettings.Resource = "Models/room.txt";
 		roomSettings.Colours = "Models/room colours.txt";
@@ -54,7 +54,7 @@ void Game::Init() {
 		_drawables->push_back(new Room(roomSettings));
 
 		RenderSettings tableSettings;
-		tableSettings.Position.X = 0.0f; tableSettings.Position.Y = 1.0f; tableSettings.Position.Z = -1.0f;
+		tableSettings.Position.X = 0.0f; tableSettings.Position.Y = 0.0f; tableSettings.Position.Z = -15.0f;
 		tableSettings.Scale.X = 2.0f; tableSettings.Scale.Y = 1.0f; tableSettings.Scale.Z = 4.0f;
 		tableSettings.Rotation = 0.0f;
 		tableSettings.Resource = "Models/table.txt";
@@ -79,7 +79,7 @@ void Game::OpenGLInit() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(45.0, (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 1.0, 1000.0);
+	gluPerspective(45.0, (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1, 1000.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
@@ -106,7 +106,8 @@ void Game::Loop() {
 
 		glLoadIdentity();
 		_camera->Draw();
-		Draw();		
+		Draw();
+
 		SDL_GL_SwapBuffers();
 	}
 }
@@ -115,7 +116,9 @@ void Game::Loop() {
 void Game::Draw() const {
 	for (int i = 0; i < _drawables->size(); i++)
 	{
-		_drawables->at(i)->Draw();
+		glPushMatrix();
+			_drawables->at(i)->Draw();
+		glPopMatrix();
 	}
 }
 

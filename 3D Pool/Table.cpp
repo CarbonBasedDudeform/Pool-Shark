@@ -97,15 +97,18 @@ void Table::LoadBumpers() {
 
 
 void Table::Draw() const {
+	glPushMatrix();
+	glTranslatef(_position->X, _position->Y, _position->Z);
 	//Draw Legs
-	for (auto iter = _legs->begin(); iter != _legs->end(); iter++)
+	for (auto iter = _legs->begin(); iter != _legs->end(); ++iter)
 	{
 		(*iter)->Draw();
 	}
 
 	//Draw green table top
 	glPushMatrix();
-		glTranslatef(_position->X, _position->Y, _position->Z);
+		//glTranslatef(_position->X, _position->Y, _position->Z);
+		glTranslatef(0, 1.0f, -1.0f);
 		glScalef(_size->X, _size->Y, _size->Z);
 		glColorPointer(3, GL_FLOAT, 0, _colours);
 		glVertexPointer(3, GL_FLOAT, 0, _vertices);
@@ -113,8 +116,10 @@ void Table::Draw() const {
 	glPopMatrix();
 	
 	//Draw bumpers
-	for (auto iter = _bumpers->begin(); iter != _bumpers->end(); iter++)
+	for (auto iter = _bumpers->begin(); iter != _bumpers->end(); ++iter)
 	{
 		(*iter)->Draw();
 	}
+
+	glPopMatrix();
 }
