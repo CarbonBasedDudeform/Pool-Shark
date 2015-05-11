@@ -14,6 +14,7 @@ public:
 	void IncreaseRoll();
 	void DecreaseRoll();
 	Vector GetNormalizedDirection() const;
+	void SetCentreOfTheUniverse(Vector centre);
 
 private:
 	Vector * _position;
@@ -27,5 +28,7 @@ private:
 	float _yaw;
 	float _pitch;
 	float _roll;
+
+	Vector _centreOfTheUniverse;
 };
 
