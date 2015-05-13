@@ -37,7 +37,7 @@ void Game::Init() {
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 	}
 	else {
-		_surface = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_OPENGL | SDL_FULLSCREEN);
+		_surface = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_OPENGL);// | SDL_FULLSCREEN);
 		SDL_WM_SetCaption("Pool Shark", NULL);
 		
 		_running = true;
@@ -62,7 +62,7 @@ void Game::Init() {
 
 		_drawables->push_back(new Table(tableSettings));
 
-		_balls = GenerateBalls(6);
+		_balls = GenerateBalls(15);
 
 		for (auto iter = _balls->begin(); iter != _balls->end(); ++iter)
 		{
@@ -150,12 +150,23 @@ void Game::ProcessInput(SDL_Event & e) {
 	}
 }
 
-std::vector<Ball*> * Game::GenerateBalls(int num)
+const float Game::CalculateNewStartingXPosition(BallRenderSettings ballSettings, int row, float originalX) const
+{
+	return ( originalX - ( (row) * ballSettings.Radius ) );
+}
+
+const bool Game::ItIsANewRow(int row, int counter) const
+{
+	return counter >= row;
+}
+
+
+std::vector<Ball*> * Game::GenerateBalls(int numberOfBalls)
 {
 	auto balls = new std::vector<Ball *>();
 
 	BallRenderSettings ballSettings;
-	ballSettings.Position.X = 0.0f; ballSettings.Position.Y = 1.25f; ballSettings.Position.Z = -2.0f;
+	ballSettings.Position.X = -0.1f; ballSettings.Position.Y = 1.1f; ballSettings.Position.Z = -18.5f;
 	ballSettings.Scale.X = 1.0f; ballSettings.Scale.Y = 1.0f; ballSettings.Scale.Z = 1.0f;
 	ballSettings.Rotation = 0.0f;
 	ballSettings.Resource = "Models/diamond.txt";
@@ -163,27 +174,27 @@ std::vector<Ball*> * Game::GenerateBalls(int num)
 
 	ballSettings.Radius = 0.1f;
 
-	auto originalX = ballSettings.Position.X;
-	auto originalZ = ballSettings.Position.Z;
+	auto StartingXPos = ballSettings.Position.X;
+	const auto originalX = ballSettings.Position.X;
 	int counter = 0;
 	int row = 1;
 	auto ballDiameter = ballSettings.Radius * 2;
-	for (int i = 0; i < num; ++i)
+	
+	for (int i = 0; i < numberOfBalls; ++i)
 	{
-		ballSettings.Position.X = originalX;
-
-		if (counter >= row)
+		if (ItIsANewRow(row, counter))
 		{
-			row++;
 			counter = 0;
-			originalX -= (((float)row/2.0f) * ballSettings.Radius);
-			ballSettings.Position.X = originalX ;
-			ballSettings.Position.Z -= (row*ballDiameter);
+			row++;
+			StartingXPos = CalculateNewStartingXPosition(ballSettings, row, originalX);
+			ballSettings.Position.Z -= ballDiameter;
 		}
-
-		ballSettings.Position.X += (counter * ballDiameter);
-		balls->push_back(new Ball(ballSettings));
 		counter++;
+		//horrible hack to handle first ball which is oddly positioned
+		if (i == 0) ballSettings.Position.X += ballSettings.Radius;
+		else ballSettings.Position.X = StartingXPos + (counter * ballDiameter);
+		
+		balls->push_back(new Ball(ballSettings));
 	}
 
 	return balls;

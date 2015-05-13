@@ -42,7 +42,6 @@ private:
 	SDL_Surface * _surface;
 	bool _running;
 	void ProcessInput(SDL_Event &);
-
 	void OpenGLInit();
 
 	//Music
@@ -55,5 +54,7 @@ private:
 	bool UserWantsToExitViaEscapeKey(SDL_Event& e);
 	std::vector<Ball *> * _balls;
 	std::vector<Ball*> * GenerateBalls(int);
+	const bool ItIsANewRow(int row, int counter) const;
+	const float CalculateNewStartingXPosition(BallRenderSettings ballSettings, int row, float originalX) const;
 };
 
