@@ -122,9 +122,14 @@ void Game::Draw() const {
 	}
 }
 
+bool Game::UserWantsToExitViaEscapeKey(SDL_Event& e)
+{
+	return ( e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE );
+}
+
 //Process any input from the user
 void Game::ProcessInput(SDL_Event & e) {
-	if (e.type == SDL_QUIT) {
+	if (e.type == SDL_QUIT || UserWantsToExitViaEscapeKey(e)) {
 		_running = false;
 	}
 
