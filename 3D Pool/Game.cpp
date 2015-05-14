@@ -69,6 +69,18 @@ void Game::Init() {
 			_drawables->push_back((*iter));
 		}
 
+		BallRenderSettings BadMotherfuckerSettings;
+		BadMotherfuckerSettings.Position.X = 0.0f; BadMotherfuckerSettings.Position.Y = 1.1f; BadMotherfuckerSettings.Position.Z = -17.0f;
+		BadMotherfuckerSettings.Scale.X = 1.0f; BadMotherfuckerSettings.Scale.Y = 1.0f; BadMotherfuckerSettings.Scale.Z = 1.0f;
+		BadMotherfuckerSettings.Rotation = 0.0f;
+		BadMotherfuckerSettings.Resource = "Models/ball.txt";
+		BadMotherfuckerSettings.Colours = "Models/ball colours.txt";
+		BadMotherfuckerSettings.Radius = 0.1f;
+
+		_theBadMotherfucker = new Ball(BadMotherfuckerSettings);
+
+		_drawables->push_back(_theBadMotherfucker);
+
 		OpenGLInit();
 	}
 }
@@ -169,8 +181,8 @@ std::vector<Ball*> * Game::GenerateBalls(int numberOfBalls)
 	ballSettings.Position.X = -0.1f; ballSettings.Position.Y = 1.1f; ballSettings.Position.Z = -18.5f;
 	ballSettings.Scale.X = 1.0f; ballSettings.Scale.Y = 1.0f; ballSettings.Scale.Z = 1.0f;
 	ballSettings.Rotation = 0.0f;
-	ballSettings.Resource = "Models/diamond.txt";
-	ballSettings.Colours = "Models/diamond colours.txt";
+	ballSettings.Resource = "Models/ball.txt";
+	ballSettings.Colours = "Models/ball colours.txt";
 
 	ballSettings.Radius = 0.1f;
 

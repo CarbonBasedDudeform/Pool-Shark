@@ -56,5 +56,7 @@ private:
 	std::vector<Ball*> * GenerateBalls(int);
 	const bool ItIsANewRow(int row, int counter) const;
 	const float CalculateNewStartingXPosition(BallRenderSettings ballSettings, int row, float originalX) const;
+
+	Ball * _theBadMotherfucker;
 };
 
