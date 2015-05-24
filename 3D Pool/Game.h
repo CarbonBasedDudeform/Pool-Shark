@@ -52,6 +52,7 @@ private:
 	std::vector<IDrawable *> * _drawables;
 	void Draw() const;
 	bool UserWantsToExitViaEscapeKey(SDL_Event& e);
+	bool UserWantsToHitTheBall(SDL_Event& e);
 	std::vector<Ball *> * _balls;
 	std::vector<Ball*> * GenerateBalls(int);
 	const bool ItIsANewRow(int row, int counter) const;

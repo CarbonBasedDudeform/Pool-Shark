@@ -119,7 +119,7 @@ void Game::Loop() {
 		glLoadIdentity();
 		_camera->Draw();
 		Draw();
-
+		
 		SDL_GL_SwapBuffers();
 	}
 }
@@ -137,6 +137,11 @@ void Game::Draw() const {
 bool Game::UserWantsToExitViaEscapeKey(SDL_Event& e)
 {
 	return ( e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE );
+}
+
+bool Game::UserWantsToHitTheBall(SDL_Event& e)
+{
+	return (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_SPACE);
 }
 
 //Process any input from the user
@@ -159,6 +164,11 @@ void Game::ProcessInput(SDL_Event & e) {
 	}
 	else if (e.motion.yrel > 0) { //moving down
 		_camera->DecreaseRoll();
+	}
+
+	if (UserWantsToHitTheBall(e))
+	{
+		_theBadMotherfucker->Move(_camera->GetNormalizedDirection());
 	}
 }
 

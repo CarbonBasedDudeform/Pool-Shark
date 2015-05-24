@@ -24,6 +24,8 @@ public:
 	Entity();
 	virtual ~Entity();
 	virtual void Draw() const override;
+	virtual void Move(Vector offset);
+	Vector GetPosition() const;
 protected:
 	GLfloat * _colours;
 	GLfloat * _vertices;

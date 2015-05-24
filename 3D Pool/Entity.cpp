@@ -19,3 +19,11 @@ void Entity::Draw() const {
 		glDrawArrays(GL_TRIANGLES, 0, num_of_verts);
 	glPopMatrix();
 }
+
+void Entity::Move(Vector offset) {
+	*_position += offset;
+}
+
+Vector Entity::GetPosition() const {
+	return *_position;
+}

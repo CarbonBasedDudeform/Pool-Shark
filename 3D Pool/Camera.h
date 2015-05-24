@@ -1,6 +1,7 @@
 #pragma once
 #include "IDrawable.h"
 #include "Vector.h"
+#include <armadillo.h>
 
 class Camera : public IDrawable
 {

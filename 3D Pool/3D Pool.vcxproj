@@ -41,12 +41,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Programming\glew-1.11.0\include;D:\Programming\SDL-1.2.15\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Programming\glew-1.11.0\include;D:\Programming\SDL-1.2.15\include;$(SolutionDir)\Amardillo\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Programming\glew-1.11.0\lib\Release\Win32;D:\Programming\SDL-1.2.15\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Programming\glew-1.11.0\include;D:\Programming\SDL-1.2.15\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Programming\glew-1.11.0\include;D:\Programming\SDL-1.2.15\include;$(SolutionDir)\Amardillo\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\Programming\glew-1.11.0\lib\Release\Win32;D:\Programming\SDL-1.2.15\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
