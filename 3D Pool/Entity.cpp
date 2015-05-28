@@ -3,6 +3,7 @@
 
 Entity::Entity()
 {
+	Velocity = Vector(0);
 }
 
 Entity::~Entity()

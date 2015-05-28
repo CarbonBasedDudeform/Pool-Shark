@@ -6,12 +6,14 @@
 
 //STL
 #include <vector>
+#include <chrono>
 
 //Interfaces
 #include "IDrawable.h"
 
 //General
 #include "Music.h"
+#include "Physics.h"
 
 //Game Objects
 #include "Camera.h"
@@ -59,5 +61,9 @@ private:
 	const float CalculateNewStartingXPosition(BallRenderSettings ballSettings, int row, float originalX) const;
 
 	Ball * _theBadMotherfucker;
+
+	//One physics system to rule them all
+	Physics _physics;
+	std::chrono::time_point<std::chrono::high_resolution_clock> _prevGameTime;
 };
 

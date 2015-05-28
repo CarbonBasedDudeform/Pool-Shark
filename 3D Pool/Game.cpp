@@ -80,8 +80,10 @@ void Game::Init() {
 		_theBadMotherfucker = new Ball(BadMotherfuckerSettings);
 
 		_drawables->push_back(_theBadMotherfucker);
+		_physics.AddEntityToSystem(_theBadMotherfucker);
 
 		OpenGLInit();
+		_prevGameTime = std::chrono::high_resolution_clock::now();
 	}
 }
 
@@ -114,6 +116,11 @@ void Game::Loop() {
 		while (SDL_PollEvent(&e) != 0) {
 			ProcessInput(e);
 		}
+		const auto now = std::chrono::high_resolution_clock::now();
+		const auto interval = now - _prevGameTime;
+		const auto time = std::chrono::duration_cast<std::chrono::milliseconds>(interval).count() / 1000.0f;
+		_physics.Update(time);
+
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		glLoadIdentity();
@@ -121,6 +128,9 @@ void Game::Loop() {
 		Draw();
 		
 		SDL_GL_SwapBuffers();
+
+		//update the value of the previous game time, done here so as not to delay rendering even by the tiniest of quanta
+		_prevGameTime = now;
 	}
 }
 

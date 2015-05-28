@@ -26,6 +26,7 @@ public:
 	virtual void Draw() const override;
 	virtual void Move(Vector offset);
 	Vector GetPosition() const;
+	Vector Velocity;
 protected:
 	GLfloat * _colours;
 	GLfloat * _vertices;
